@@ -36,9 +36,13 @@ where = ["src"]
 [tool.ruff]
 line-length = 100
 target-version = "py310"
+src = ["src", "tests"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "SIM", "UP"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["demand_forecasting"]
 
 [tool.black]
 line-length = 100
