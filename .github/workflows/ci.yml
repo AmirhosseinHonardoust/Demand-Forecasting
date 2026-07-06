@@ -8,28 +8,32 @@ on:
 jobs:
   quality-gate:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: ${{ matrix.python-version }}
           cache: pip
 
-      - name: Install dependencies
+      - name: Install
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements-dev.txt
+          pip install -e .
 
-      - name: Ruff (lint)
+      - name: Ruff
         run: ruff check .
 
-      - name: Black (format check)
+      - name: Black
         run: black --check .
 
-      - name: Mypy (type check)
-        run: mypy src data
+      - name: Mypy
+        run: mypy src
 
       - name: Pytest
         run: pytest -q

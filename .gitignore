@@ -16,5 +16,5 @@ env/
 .mypy_cache/
 .pytest_cache/
 
-# Generated outputs (produced by src/forecast_arima.py)
+# Generated outputs
 outputs/
