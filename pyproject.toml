@@ -1,0 +1,36 @@
+[project]
+name = "demand-forecasting"
+version = "0.1.0"
+description = "End-to-end demand forecasting with ARIMA/SARIMA on synthetic time-series data."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Amirhossein Honardoust" }]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "SIM", "UP"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.mypy]
+python_version = "3.10"
+mypy_path = "src"
+warn_unused_ignores = true
+ignore_missing_imports = false
+
+[[tool.mypy.overrides]]
+module = ["statsmodels.*", "sklearn.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+# Make the flat `src/` and `data/` modules importable in tests without
+# depending on the current working directory.
+pythonpath = ["src", "data", "."]
+testpaths = ["tests"]
+markers = ["slow: end-to-end tests that fit real SARIMAX models"]
