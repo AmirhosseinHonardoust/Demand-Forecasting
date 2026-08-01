@@ -1,5 +1,5 @@
 """Model search, SARIMA fitting, and baseline forecasters."""
-       
+        
 import logging
 
 import numpy as np
