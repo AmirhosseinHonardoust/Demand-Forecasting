@@ -11,7 +11,7 @@
 
 </div>
 
-An end-to-end demand-forecasting workflow that turns a daily sales series into **calibrated ARIMA/SARIMA forecasts**, **confidence intervals**, **baseline comparisons**, and a **rolling-origin backtest** — packaged as an installable CLI with tests and CI.
+An end-to-end demand-forecasting workflow that turns a daily sales series into **calibrated ARIMA/SARIMA forecasts**, **confidence intervals**, **baseline comparisons**, and a **rolling-origin backtest**, packaged as an installable CLI with tests and CI.
 
 > **Important:** This project is a **portfolio and research demo**, not a production forecasting or planning system.
 >
